@@ -1,179 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ما تقولها (Party Game) — Privacy Policy &amp; Support</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #1f2328;
-      --muted: #57606a;
-      --accent: #2563eb;
-      --border: #e5e7eb;
-      --card: #f6f8fa;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.65;
-      color: var(--text);
-      background: var(--bg);
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-    header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 12px; }
-    h1 { font-size: 1.9rem; margin: 0 0 8px; }
-    .sub { color: var(--muted); font-size: 0.95rem; margin: 0; }
-    nav { margin: 18px 0 8px; font-size: 0.95rem; }
-    nav a { color: var(--accent); text-decoration: none; margin-right: 18px; }
-    nav a:hover { text-decoration: underline; }
-    h2 {
-      font-size: 1.35rem; margin-top: 44px; margin-bottom: 12px;
-      padding-bottom: 6px; border-bottom: 2px solid var(--border);
-    }
-    h3 { font-size: 1.1rem; margin-top: 26px; margin-bottom: 6px; }
-    p, li { color: var(--text); }
-    a { color: var(--accent); }
-    ul { padding-left: 22px; }
-    li { margin-bottom: 8px; }
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 16px 20px; margin-top: 16px;
-    }
-    .contact { margin-top: 8px; font-size: 1.05rem; }
-    footer {
-      margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border);
-      color: var(--muted); font-size: 0.85rem;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0d1117; --text: #e6edf3; --muted: #9198a1;
-        --accent: #58a6ff; --border: #30363d; --card: #161b22;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support &amp; Privacy — ما تقولها (Ma T'oulha)</title>
+<meta name="description" content="Support, help and privacy policy for ما تقولها (Ma T'oulha), an Arabic word-guessing party game for teams or solo players, on one phone or online.">
+<style>
+  :root {
+    --ink: #1f1440;
+    --dim: #5a5277;
+    --bg: #f4f1fb;
+    --panel: #ffffff;
+    --line: #e3dcf4;
+    --accent: #6d3fd6;
+    --soft: #efe8fc;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { margin-bottom: 22px; }
+  header h1 { font-size: 28px; margin: 0 0 6px; }
+  header p.sub { color: var(--dim); margin: 0; font-size: 14px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 5;
+    margin: 0 -24px 28px; padding: 12px 24px;
+    display: flex; gap: 10px; flex-wrap: wrap;
+    background: rgba(244, 241, 251, 0.92);
+    backdrop-filter: blur(8px);
+  }
+  nav a {
+    display: inline-block;
+    padding: 7px 15px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  nav a:hover { background: var(--soft); text-decoration: none; }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 30px;
+    box-shadow: 0 6px 22px rgba(31, 20, 64, 0.06);
+    margin-bottom: 26px;
+    scroll-margin-top: 70px;
+  }
+  .card > h2.section {
+    font-size: 22px;
+    margin: 0 0 4px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  h2 { font-size: 18px; margin: 32px 0 10px; color: var(--ink); }
+  h3 { font-size: 15px; margin: 22px 0 4px; color: var(--ink); }
+  p, li { color: var(--dim); font-size: 15px; }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: var(--ink); }
+
+  .steps { counter-reset: step; list-style: none; padding: 0; margin: 12px 0 0; }
+  .steps li { counter-increment: step; position: relative; padding-left: 40px; margin-bottom: 12px; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 1px;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--soft); color: var(--accent);
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 12px 0 0; }
+  .mode { background: var(--soft); border-radius: 12px; padding: 14px 18px; }
+  .mode p { margin: 4px 0 0; }
+  .mode .name { margin: 0; font-weight: 700; color: var(--ink); font-size: 15px; }
+
+  .contact { background: var(--soft); border-radius: 12px; padding: 18px 22px; margin-top: 24px; }
+  .contact p { margin: 6px 0; }
+  .contact .big { font-size: 17px; color: var(--ink); font-weight: 600; }
+
+  .ar { direction: rtl; text-align: right; }
+  .updated { margin-top: 28px; font-size: 13px; color: var(--dim); }
+  footer { text-align: center; margin-top: 32px; font-size: 13px; color: var(--dim); }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>ما تقولها (Ma T'oulha) — Party Game</h1>
-      <p class="sub">Privacy Policy &amp; Support &nbsp;·&nbsp; Last updated: July 18, 2026</p>
-      <nav>
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#support">Support</a>
-      </nav>
-    </header>
+<div class="wrap">
+  <header>
+    <h1>ما تقولها — Ma T'oulha</h1>
+    <p class="sub">An Arabic word-guessing party game · Support &amp; Privacy Policy</p>
+  </header>
 
-    <!-- ============ PRIVACY POLICY ============ -->
-    <section id="privacy">
-      <h2>Privacy Policy</h2>
+  <nav>
+    <a href="#support">Support</a>
+    <a href="#how">How to play</a>
+    <a href="#saves">Save files</a>
+    <a href="#faq">Common questions</a>
+    <a href="#contact">Contact</a>
+    <a href="#privacy">Privacy Policy</a>
+  </nav>
 
-      <p>
-        This Privacy Policy explains how the mobile game <strong>ما تقولها (Ma T'oulha)</strong>
-        ("the App", "we", "us", or "our") handles information when you use it. By using the App,
-        you agree to the practices described in this policy.
-      </p>
+  <!-- ===================== SUPPORT ===================== -->
+  <div class="card" id="support">
+    <h2 class="section">Support</h2>
 
-      <h3>1. Information We Collect</h3>
-      <p>The App is designed to be played locally and does not require you to create an account. We do not ask for your name, phone number, or address. However, some information is collected automatically to run ads and process purchases:</p>
-      <ul>
-        <li><strong>Advertising data:</strong> We use Google AdMob to show ads. AdMob may collect device identifiers (such as an advertising ID), approximate (non-precise) location, IP address, and app-usage information to serve and measure ads.</li>
-        <li><strong>Purchase data:</strong> When you buy premium content, the transaction is processed by Google Play Billing. We do not receive or store your credit card or full payment details; we only receive confirmation that a purchase was completed.</li>
-        <li><strong>Support requests:</strong> If you email us, we receive the email address and any information you choose to include so we can respond.</li>
-      </ul>
+    <h2>About the game</h2>
+    <p><strong>ما تقولها (Ma T'oulha)</strong> is a word-guessing party game. On your turn, you explain a word to the others without saying any of its 5 <strong>rejected words</strong>, before the time runs out. Every word they guess wins a point, and saying a rejected word costs one. Play in two teams, or every player for themselves, with words in Arabic and English and packs for many dialects.</p>
+    <p class="ar">لعبة جماعية لتخمين الكلمات. في دورك، اشرح الكلمة للآخرين من دون أن تقول أيًّا من كلماتها المرفوضة الخمس قبل أن ينتهي الوقت. كل كلمة يخمّنونها تكسبكم نقطة، وكل كلمة مرفوضة تقولها تخسركم نقطة. العبوا فريقين أو كل لاعب لنفسه، على هاتف واحد تتناقلونه بينكم، أو يلعب كلٌّ على هاتفه عبر الإنترنت، بالواي فاي أو ببيانات الهاتف، أينما كنتم.</p>
 
-      <h3>2. How We Use Information</h3>
-      <ul>
-        <li>To display advertisements within the App.</li>
-        <li>To process and restore in-app purchases.</li>
-        <li>To respond to your support questions and feedback.</li>
-        <li>To detect, prevent, and fix technical issues.</li>
-      </ul>
-
-      <h3>3. Advertising</h3>
-      <p>
-        The App displays ads through <strong>Google AdMob</strong>. Because the App is family-friendly,
-        we serve only <strong>non-personalized ads</strong> to users who may be children. Non-personalized
-        ads are based on general context rather than a user's past behavior. Learn more here:
-        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">
-          How Google uses information from sites or apps that use its services</a>.
-      </p>
-
-      <h3>4. In-App Purchases</h3>
-      <p>
-        The App offers optional premium content through in-app purchases. All payments are handled securely by
-        Google Play. Purchases can be restored from the Premium Content page using the same Google Account used
-        for the original purchase.
-      </p>
-
-      <h3>5. Children's Privacy</h3>
-      <div class="card">
-        <p style="margin-top:0;">
-          The App is intended to be family-friendly and may be used by children. We take children's privacy
-          seriously and comply with the Children's Online Privacy Protection Act (COPPA) and Google Play's
-          Families Policy.
-        </p>
-        <ul style="margin-bottom:0;">
-          <li>We do <strong>not</strong> knowingly collect personal information from children.</li>
-          <li>Only <strong>non-personalized ads</strong> are shown to children.</li>
-          <li>The App does not include social features that let children share personal information publicly.</li>
-        </ul>
+    <h2>Two ways to play</h2>
+    <div class="modes">
+      <div class="mode">
+        <p class="name">On one device · على جهاز واحد</p>
+        <p>Up to 16 players share one phone and pass it on when a turn ends. This mode works fully offline.</p>
       </div>
-      <p>
-        If you are a parent or guardian and believe your child has provided us with personal information,
-        please contact us at the email below and we will delete it promptly.
-      </p>
-
-      <h3>6. Third-Party Services</h3>
-      <p>Some data is handled by trusted third parties, each governed by its own privacy policy:</p>
-      <ul>
-        <li>Google AdMob &mdash; <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
-        <li>Google Play Services &amp; Billing &mdash; <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
-      </ul>
-
-      <h3>7. Data Sharing</h3>
-      <p>
-        We do not sell your personal information. Information is shared only with the service providers listed
-        above, and only as needed to run ads and process purchases, or where required by law.
-      </p>
-
-      <h3>8. Data Retention &amp; Security</h3>
-      <p>
-        We keep information only as long as necessary for the purposes described here. We use reasonable technical
-        measures to protect information, though no method of transmission or storage is completely secure.
-      </p>
-
-      <h3>9. Your Rights</h3>
-      <p>
-        Depending on where you live (for example under GDPR or CCPA), you may have the right to access, correct,
-        or delete information related to you. To make a request, contact us using the details below.
-      </p>
-
-      <h3>10. Changes to This Policy</h3>
-      <p>
-        We may update this Privacy Policy from time to time. Any changes will be posted on this page with an
-        updated "Last updated" date.
-      </p>
-    </section>
-
-    <!-- ============ SUPPORT ============ -->
-    <section id="support">
-      <h2>Support</h2>
-      <p>Need help? We're here for you.</p>
-      <p>If you're experiencing any issues with the app, have questions, or want to share feedback, please reach out to us by email and we'll get back to you as soon as possible.</p>
-      <p class="contact"><strong>Email:</strong> <a href="mailto:ayounesdev@gmail.com">ayounesdev@gmail.com</a></p>
-
-      <h3>Common Questions</h3>
-      <p><strong>How do I play over local WiFi?</strong> Make sure all devices are connected to the same WiFi network. One player creates a game room and others join from the main menu using the lobby code provided by the host.</p>
-      <p><strong>How do I change the dialect?</strong> You can select your preferred dialect (English, Lebanese, Syrian, Palestinian, Egyptian, Gulf, or Modern Standard Arabic) from the game settings before starting a round.</p>
-      <p><strong>How do I restore my in-app purchases?</strong> Go to the Premium Content Page and tap "Restore Purchases." Make sure you're signed in with the same Apple ID or Google Account you used for the original purchase.</p>
-      <p><strong>You found a bug or have a suggestion?</strong> We'd love to hear from you! Send us an email at <a href="mailto:ayounesdev@gmail.com">ayounesdev@gmail.com</a> with a description of the issue or your idea.</p>
-    </section>
-
-    <footer>
-      &copy; 2026 ما تقولها (Ma T'oulha). All rights reserved.
-    </footer>
+      <div class="mode">
+        <p class="name">Over Wi-Fi · عبر الواي فاي</p>
+        <p>Up to 10 players, each on their own phone, over Wi-Fi or mobile data, from anywhere. One player creates a room and shares its 8-digit code. The others tap <strong>Join Game (إنضم للعبة)</strong> and enter the code. Phones don't need to be on the same network or in the same place.</p>
+      </div>
+    </div>
+    <p>In an online room, the player who opened it runs it: they start the game and move everyone on to each new turn. If they leave, the player who has been in the room longest takes over.</p>
+    <p><strong>A game between friends.</strong> Online rooms are private. Only the people you give the room code to can join.</p>
   </div>
+
+  <!-- ===================== HOW TO PLAY ===================== -->
+  <div class="card" id="how">
+    <h2 class="section">How to play</h2>
+    <ol class="steps">
+      <li><strong>Choose how to play:</strong> on one device, or over Wi-Fi with each player on their own phone.</li>
+      <li><strong>Pick a save file</strong> (or make a new one) and add the players: two teams, or every player for themselves.</li>
+      <li><strong>On your turn,</strong> a main word appears with its 5 rejected words. Explain the main word without saying any of them, and without signs or sounds.</li>
+      <li><strong>Guessed it?</strong> Tap Correct for a point and get the next word. Stuck? Skip it, if skips are allowed in the settings.</li>
+      <li><strong>Use your abilities</strong> to help your team: <strong>Freeze Time</strong> (stops the timer for 7 seconds), <strong>Allow Word</strong> (one rejected word becomes allowed) and <strong>Use Signs</strong> (sounds and gestures). Opponent effects make the other side's turn harder.</li>
+      <li><strong>When the time runs out,</strong> the round ends and the turn passes on. The <strong>History</strong> button shows every round played so far.</li>
+    </ol>
+    <p>Full rules, settings and examples are in <strong>How to play (كيفية اللعب)</strong> on the game's home screen.</p>
+  </div>
+
+  <!-- ===================== SAVE FILES ===================== -->
+  <div class="card" id="saves">
+    <h2 class="section">Save files</h2>
+    <p>Each mode has its own save files (up to 10). A save file remembers which words have already come up, so they don't repeat, even across games, until all the words in your packs have been used or you reset them. You choose a save file before each game. In an online room, the game uses the save file of the player who opened the room.</p>
+    <p>You can copy a save file to the other mode, or send it to a friend: your friend taps <strong>Receive</strong> and gives you the 6-digit code that appears, and you enter it after tapping <strong>Send</strong>.</p>
+    <h2>My Words</h2>
+    <p>In <strong>My Words (كلماتي)</strong> on the home screen, you can write up to 500 cards of your own, each a main word with 5 rejected words, sort them into folders, play them on one device or online, and send them to friends with a 6-digit code, the same way as a save file. Anyone can write words. Playing them is unlocked with the Full Bundle, or by owning all 22 packs.</p>
+  </div>
+
+  <!-- ===================== FAQ ===================== -->
+  <div class="card" id="faq">
+    <h2 class="section">Common questions</h2>
+
+    <h3>Does the game need an internet connection?</h3>
+    <p>One-device mode works fully offline. Playing on separate phones (Over Wi-Fi) needs an internet connection on every phone. Wi-Fi and mobile data both work, and you don't need to be on the same network. You also need internet to send or receive a save file or words, to load ads, and to buy or restore word packs.</p>
+
+    <h3>My friends can't join my room.</h3>
+    <ul>
+      <li>Check that they entered all <strong>8 digits</strong> of the room code.</li>
+      <li>Make sure every phone is <strong>connected to the internet</strong>.</li>
+      <li>Make sure the room is still open. A room closes automatically about 5 minutes after everyone has left it. If it closed, open a new one.</li>
+      <li>Make sure everyone has the <strong>latest version</strong> of the game. The game asks you to update when a newer version is needed.</li>
+    </ul>
+
+    <h3>Someone lost their connection during a game.</h3>
+    <p>The game keeps going for the others while their phone reconnects on its own. If they closed the app, they join the same room code again from the same phone and get their seat back with their score.</p>
+
+    <h3>How do I choose a dialect?</h3>
+    <p>In the game settings, on the Words tab, pick the packs you want to play: Arabic and English words, and dialect packs such as Lebanese, Egyptian, Gulf, Palestinian / Syrian, Iraqi, Sudanese, Yemeni and Maghrebi.</p>
+
+    <h3>Will the same words come up again?</h3>
+    <p>Not until you've been through all of them. The save file you play on remembers every word that has come up, even across games.</p>
+
+    <h3>Does everyone in an online room need to buy a pack?</h3>
+    <p>No. A pack owned by a player in the room can be played by the whole room while that player is there.</p>
+
+    <h3>I bought a pack but it's still locked.</h3>
+    <p>Make sure you are connected to the internet, open <strong>Settings</strong> and tap <strong>Restore Purchases (استعادة المشتريات)</strong>. This checks your purchase with the App Store or Google Play again and unlocks it. Do the same after reinstalling the app or moving to a new phone, signed in with the same Apple ID or Google account you bought with.</p>
+
+    <h3>Are our scores saved?</h3>
+    <p>Team names, players and scores are kept in your save file on your phone, so you can carry on a game later. Online rooms are deleted from our server automatically about 5 minutes after everyone has left.</p>
+
+    <h3>I found a bug, or I have an idea.</h3>
+    <p>Email us with what happened, which mode you were playing (one device or Over Wi-Fi), and your phone model. A screenshot helps a lot.</p>
+  </div>
+
+  <!-- ===================== CONTACT ===================== -->
+  <div class="card" id="contact">
+    <h2 class="section">Contact us</h2>
+    <div class="contact">
+      <p class="big">We're happy to help.</p>
+      <p>Email: <a href="mailto:ayounesdev@gmail.com">ayounesdev@gmail.com</a></p>
+      <p>Instagram: <a href="https://www.instagram.com/younes_development" target="_blank" rel="noopener">@younes_development</a></p>
+      <p>We reply to every message, usually within 48 hours. Support is available in <strong>Arabic and English</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== PRIVACY POLICY ===================== -->
+  <div class="card" id="privacy">
+    <h2 class="section">Privacy Policy</h2>
+    <p>This Privacy Policy explains what information ما تقولها ("the App", "we", "us") collects, how it is used, and the choices you have. By using the App, you agree to this policy.</p>
+
+    <h2>Information We Do Not Collect</h2>
+    <p>The App does not require an account, login or sign-up of any kind. We do not ask for your email address, phone number, contacts or precise location, and the App does not access your photos, camera, microphone or files.</p>
+
+    <h2>Player Names and Game Data</h2>
+    <p>To play, you type a name for each player. Names are used only to show whose turn it is and to keep score:</p>
+    <ul>
+      <li><strong>In one-device mode,</strong> names, teams and scores stay on your phone, in your save file. Nothing is sent anywhere.</li>
+      <li><strong>In Over Wi-Fi mode,</strong> the App sends the following to our game server so the room can run: the name you enter, the room code, and your in-game actions (such as correct and skipped words, rejected words said, abilities used and scores). For the player who opens the room, it also sends their selected save file's name, teams, scores, settings and progress (which words have already come up). The server shares names, actions and scores with the other players in the same room, as the game requires.</li>
+      <li>Room data is kept on the server only while the room is in use, and is deleted automatically about 5 minutes after everyone has left the room.</li>
+      <li>Other players in your room can see the name you enter. You are free to use a nickname.</li>
+    </ul>
+
+    <h2>Save Files and My Words</h2>
+    <p>Save files and your own words (My Words) are stored on your device. A save file contains the name you gave it, the player and team names, scores, settings and which words have already come up. Copying a save file to the other mode happens entirely on your device.</p>
+    <p>When you send a save file or words to a friend, they are uploaded to our server and held only until your friend's phone receives them. They are deleted automatically, at the latest 10 minutes after your friend's code was created.</p>
+    <p>Online, if you switch your My Words on in a room, the App sends those words to the room so they can be played there. They are shown only to the players in that room, and deleted with the room. We do not read, sell or share your words, and do not use them for any other purpose.</p>
+
+    <h2>Our Game Server</h2>
+    <p>Online rooms and file transfers run on our own server, hosted by <strong>Cloudflare</strong>. All connections to it are encrypted. Like any internet service, Cloudflare processes your device's IP address to deliver the connection, and keeps short technical logs for a few days, which we use only to keep the service working and fix problems. The server also counts how many players are connected at the moment, without names, so we can see how busy the game is. We do not use this information to identify you, and we do not sell or share it.</p>
+
+    <h2>Google Firebase</h2>
+    <p>The App uses Google Firebase for the following:</p>
+    <ul>
+      <li><strong>Analytics:</strong> Firebase Analytics tells us how the App is used, for example how many people play, which screens they open, how long a session lasts and when a purchase is made. It uses a random identifier created by the App (and, where your device allows it, its advertising identifier), together with basic information such as your device model, operating system, App version and general region (worked out from your IP address). We use this only to understand and improve the game, not to identify you.</li>
+      <li><strong>Update check:</strong> when the App starts, it asks Firebase Remote Config whether a newer version of the App is required.</li>
+      <li><strong>Anonymous sign-in and purchase check:</strong> the App signs in to Firebase anonymously, which gives it a random user ID with no name, email or other details attached. This ID is used for the purchase check described under In-App Purchases below.</li>
+    </ul>
+    <p>Firebase is operated by Google under its own privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+    <h2>Information Stored On Your Device</h2>
+    <p>The App saves a small amount of information locally on your own device:</p>
+    <ul>
+      <li>Your save files and My Words, and which save file is selected in each mode.</li>
+      <li>The name you used for online play, so you don't have to type it again.</li>
+      <li>Which word packs you own, so they stay unlocked.</li>
+      <li>Your settings and your ad consent choices, where they apply.</li>
+    </ul>
+    <p>Save files and words only leave your device as described above. All of this information is removed if you uninstall the App.</p>
+
+    <h2>Advertising</h2>
+    <p>The App shows ads served through <strong>Google AdMob</strong>, with <strong>Unity Ads</strong> as an additional ad partner: banner ads, full-screen ads between rounds, and optional rewarded ads that you can choose to watch for a bonus (20 extra seconds or double points) or to try 5 free words from a pack. Buying a word pack removes all ads.</p>
+    <p>To serve and measure ads, these ad networks may collect information such as your device's advertising identifier, general (non-precise) location derived from your IP address, basic device information, and how you interact with ads. We do not control this data collection directly. It is handled by Google and Unity under their own privacy policies: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> · <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener">Unity Privacy Policy</a>. You can also read <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from apps that use its services</a>.</p>
+    <p>Where required by law (for example in the European Economic Area, the United Kingdom and Switzerland), you will be asked for your consent before personalized ads are shown, and you can change your choice later from <strong>Privacy Settings</strong> in the App's settings. On iPhone, if the App asks for permission to track your activity, you can decline. You will still see ads, but they will be less personalized.</p>
+    <p>You can limit ad personalization at any time from your device's settings (for example Settings → Google → Ads on Android, or Settings → Privacy &amp; Security → Apple Advertising on iOS).</p>
+
+    <h2>In-App Purchases</h2>
+    <p>The App offers optional word packs. The free version of the game is fully playable without buying anything.</p>
+    <p>Purchases are processed entirely by the <strong>Apple App Store</strong> or <strong>Google Play</strong>. We never see or store your payment details (card numbers, billing address, etc.). To make sure a purchase is genuine, the App sends the purchase receipt issued by the store to our purchase-check service (Google Cloud Functions, through Firebase), which asks Google Play or Apple to confirm it. When a purchase is confirmed, we keep a record of it (the product, the store's order or transaction number and the date), linked only to the App's anonymous Firebase user ID, so the purchase can be restored. The receipt and this record contain no payment details.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>The App is not directed at children under 13, and we do not knowingly collect personal information from children. If you believe a child has provided us information (for example, through the contact email below), please contact us and we will remove it.</p>
+
+    <h2>Links to Other Apps and Sites</h2>
+    <p>The App's <strong>More games</strong> screen opens our other games on the App Store or Google Play, and this page links to our Instagram account. Those services are run by Apple, Google and Meta under their own privacy policies.</p>
+
+    <h2>If You Contact Us</h2>
+    <p>If you email us for support or to report a bug, we will receive whatever information you choose to include in that email (such as your email address and message), and we use it only to respond to you.</p>
+
+    <h2>Data Security</h2>
+    <p>The App has no accounts. The only lasting record we keep is the purchase record described above, linked to a random ID. Game data travels over encrypted connections. Online rooms and files sent to friends are deleted automatically after the short times described above. Data handled by Google (AdMob, Firebase), Unity, Cloudflare and the app stores is protected under their own security practices.</p>
+
+    <h2>Your Choices</h2>
+    <ul>
+      <li>You can play in one-device mode, in which no game data leaves your phone.</li>
+      <li>You can use a nickname instead of your real name.</li>
+      <li>You can limit ad personalization or change your ad consent from the App's Privacy Settings or your device's settings, as described above.</li>
+      <li>Depending on where you live (for example under the GDPR or US state privacy laws), you may have the right to access or delete information related to you. Contact us and we will help.</li>
+      <li>Uninstalling the App removes all locally stored data described above.</li>
+    </ul>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time, for example as the App gains new features. Changes will be posted on this page with an updated date below.</p>
+
+    <h2>Contact Us</h2>
+    <p>Questions about this policy? Reach us at <a href="mailto:ayounesdev@gmail.com">ayounesdev@gmail.com</a> or on Instagram <a href="https://www.instagram.com/younes_development" target="_blank" rel="noopener">@younes_development</a>.</p>
+    <p class="updated">Effective date: July 18, 2026 · Last updated: November 26, 2026</p>
+  </div>
+
+  <footer>&copy; 2026 ما تقولها (Ma T'oulha). All rights reserved.</footer>
+</div>
 </body>
 </html>
